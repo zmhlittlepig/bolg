@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页_凉菜博客站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-pager.css"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/m.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/chinaz.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-pager.js"></script>
+    <script type="text/javascript" src="bootstrap/js/extendPagination.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/chinaz.js"></script>
+    <script src="layer/layer.js"></script>
+    <script>
+        window.onload = function () {
+            var oH2 = document.getElementsByTagName("h2")[0];
+            var oUl = document.getElementsByTagName("ul")[0];
+            oH2.onclick = function () {
+                var style = oUl.style;
+                style.display = style.display == "block" ? "none" : "block";
+                oH2.className = style.display == "block" ? "open" : ""
+            }
+
+        }
+
+        /* $(window).load("/blog/Posts?method=GetPostMessageStage&page=1", function(responseText, statusTXT, xhr) {
+
+            var s = JSON.parse(responseText);
+            $("#div01").html("");
+
+            s.forEach(element => {
+                var msg =  '<li> <span class="blogpic"><a href="/"><img src="images/text02.jpg"></a></span>';
+                      msg +=  '<h3 class="blogtitle"><a href="/">' + element["postTitle"] +'</a></h3><h5>' + element["postAuthor"] + '</h5>';
+                      msg +=  '<div class="bloginfo">';
+                      msg +=  '<p>' + element["postExcerpt"] + '</p>';
+                      msg +=  '</div>';
+                      msg +=  '<div class="autor"><span class="lm"><a href="/" title="CSS3|Html5" target="_blank" class="classname">' + element["name"] + '</a></span><span class="dtime">' + element["postDate"] + '</span><span class="viewnum">评论（<a href="/">' + element["commentCount"] + '</a>）</span><span class="readmore"><a href="/">阅读原文</a></span></div>';
+                      msg +=  '</li>';
+
+                $("#div01").append(msg);
+            });
+        }); */
+
+    </script>
+</head>
+<body>
+<header>
+    <div class="tophead">
+        <div class="logo">
+            <a href="/">凉菜博客站</a>
+        </div>
+        <div id="mnav">
+            <h2>
+                <span class="navicon"></span>
+            </h2>
+            <ul>
+                <li><a href="index.html">网站首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li class="li01"></li>
+                <li><a href="register.html">注册</a></li>
+                <li class="li02"></li>
+            </ul>
+        </div>
+        <nav class="topnav" id="topnav">
+            <ul>
+                <li><a href="index.html">网站首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li class="li01"></li>
+                <li><a href="register.html">注册</a></li>
+                <li class="li02"></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<article>
+    <div id='cssmenu'>
+        <ul id="mynav">
+
+        </ul>
+    </div>
+    <div class="blogs">
+        <div id="div01"></div>
+        <div class="text-center"><ul id="callBackPager"></ul></div>
+    </div>
+
+
+    <div class="sidebar">
+        <div class="about">
+
+        </div>
+        <div class="search">
+            <form action="/e/search/index.php" method="post" name="searchform"
+                  id="searchform">
+                <input name="keyboard" id="keyboard" class="input_text"
+                       value="请输入关键字" style="color: rgb(153, 153, 153);"
+                       onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}"
+                       onblur="if(value==''){this.style.color='#999';value='请输入关键字'}"
+                       type="text">
+                <input name="show" value="title" type="hidden">
+                <input name="tempid" value="1" type="hidden">
+                <input name="tbname" value="news" type="hidden">
+                <input name="Submit" class="input_submit" value="搜索" type="button" onclick="search()">
+            </form>
+        </div>
+        <div class="cloud">
+            <h2 class="hometitle">标签云</h2>
+            <ul id="ul01">
+                <!-- <a href="/">陌上花开</a>
+                <a href="/">校园生活</a>
+                <a href="/">html5</a>
+                <a href="/">SumSung</a>
+                <a href="/">青春</a>
+                <a href="/">温暖</a>
+                <a href="/">阳光</a>
+                <a href="/">三星</a>
+                <a href="/">索尼</a>
+                <a href="/">华维荣耀</a>
+                <a href="/">三星</a>
+                <a href="/">索尼</a> -->
+            </ul>
+        </div>
+        <div class="paihang">
+            <h2 class="hometitle">热度排行</h2>
+            <ul id="ul02">
+            </ul>
+        </div>
+        <div class="links">
+            <h2 class="hometitle">友情链接</h2>
+            <ul>
+                <li><a href="http://www.baidu.com" title="百度">百度</a></li>
+                <li><a href="http://www.bilibili.com" title="B站">B站</a></li>
+                <li><a href="http://www.welcom212.com/wordpress" title="站长博客">站长博客</a></li>
+            </ul>
+        </div>
+        <div class="weixin">
+            <h2 class="hometitle">官方微信</h2>
+            <ul>
+                <img src="images/wx.jpg">
+            </ul>
+        </div>
+    </div>
+</article>
+<div class="blank"></div>
+<footer>
+    <p>
+        Design by <a href="/">杨青个人博客</a> <a href="/">蜀ICP备11002373号-1</a>
+    </p>
+</footer>
+<script src="js/nav.js"></script>
+<script>
+    $(function () {
+
+        var msg = "";
+        $.ajax({
+
+            url: "/user?method=checkISlogin",
+            method: "post",
+            success: function (data) {
+                if (data >= 1) {
+                    msg = '<a href="#" onclick=logoff() >退出登录</a>';
+                    var msg1 = '<a href="admin/index.html" >管理后台</a>';
+                    $(".li01").html("");
+                    $(".li01").append(msg);
+                    if(data == 2){
+                        $(".li02").html("");
+                        $(".li02").append(msg1);
+                    }
+                } else {
+                    msg = '<a href="login.html">登录</a>';
+                    $(".li01").html("");
+                    $(".li01").append(msg);
+                }
+            }
+
+        });
+
+
+        $.ajax({
+
+            url: "/Terms?method=getAllLable",
+            method: "post",
+            success: function (data) {
+
+                var s = JSON.parse(data);
+                $("#ul01").html("");
+                s.forEach(function (element) {
+
+                    var msg = '<a href="javascript:;" onclick = "getPostByTerm(' + element["termId"] + ')">' + element["name"] + '</a>';
+
+                    $("#ul01").append(msg);
+                });
+
+            }
+        });
+
+
+        $.ajax({
+
+            url: "/Posts?method=GetPostByCommentCount",
+            method: "post",
+            success: function (data) {
+                var s = JSON.parse(data);
+                $("#ul02").html("");
+                s.forEach(function (element) {
+
+                    var msg = '<li><b><a href="page.html?pid='+element["iD"]+'" target="_blank">' + element["postTitle"] + '</a></b>';
+                    msg += '<div style="word-break: break-all;word-wrap: break-word; ">'
+                    msg += '<i><img src="'+element["postPic"]+'"></i>' + element["postExcerpt"].substr(0, 80)
+                    msg += '</div></li>';
+
+                    $("#ul02").append(msg);
+
+
+                });
+
+            }
+
+        });
+
+        $.ajax({
+            url: "/adminterm?method=getNav",
+            method: 'post',
+            success: function (data) {
+                data = JSON.parse(data);
+                var msg = "";
+                data.forEach(function (list) {
+
+                    if (list.length == 1) {
+                        msg += "<li><a href='javascript: ;' onclick='getPostByTerm("+list[0]['termId']+")'>"+list[0]['name']+"</a></li> ";
+                    } else {
+
+                        msg += "<li class='has-sub'><a href='javascript: ;' onclick='getPostByTerm("+list[0]['termId']+")'>"+list[0]['name']+"</a> <ul>";
+                        for(var i = 1; i < list.length; i++){
+                            msg += "<li><a href='javascript: ;' onclick='getPostByTerm("+list[i]['termId']+")'>"+list[i]['name']+"</a></li>";
+                        }
+                        msg += "</ul> </li>";
+                    }
+                });
+                $("#mynav").append(msg);
+            }
+        });
+
+
+        //进入页面的时候需要调用callBackPagination这个函数，传入当前页，页大小，总页数
+        callBackPagination(1, 6, getTotal("/Posts?method=getpostCount"), "/Posts?method=GetPostMessageStage"); //参数一：当前页 参数二：页大小  参数三：数据总条数（不需要传递总页数）
+    })
+
+    //这段代码不许要动
+    function callBackPagination(showCount, limit, totalCount, url) {
+        createTable(1, limit, url); //第一次调用(加载第一页数据)
+        $('#callBackPager').extendPagination({  //根据传入的参数生成分页控件
+            totalCount: totalCount,
+            showCount: showCount,
+            limit: limit,
+            pageCount: 5,
+            count: 5,
+            callback: function (curr, limit) {//当点击分页控件页码时会触发此回调函数
+                createTable(curr, limit, url);
+            }
+        });
+    }
+
+    //用的时候只需要写下面这段ajax代码就可以
+    function createTable(currPage, limit, url) {
+
+        var s = $("#keyboard").val();
+        $.get(url, {currPage: currPage, pageSize: limit, "words": s}, function (result) {
+            var s = JSON.parse(result);
+            $("#div01").html("");
+
+            s.forEach(function (element) {
+                var msg = '<li> <span class="blogpic"><a href="/"><img src="'+element["postPic"]+'" height="200px"></a></span>';
+                msg += '<h3 class="blogtitle"><a href="/">' + element["postTitle"] + '</a></h3><h5>' + element["userNicename"] + '</h5>';
+                msg += '<div class="bloginfo">';
+                msg += '<div style="word-break: break-all;word-wrap: break-word; ">' + element["postExcerpt"] + '</div>';
+                msg += '</div>';
+                msg += '<div class="autor"><span class="lm"><a href="/" title="CSS3|Html5" target="_blank" class="classname">' + element["name"] + '</a></span><span class="dtime">' + element["postDate"] + '</span><span class="viewnum">评论（<a href="/">' + element["commentCount"] + '</a>）</span><span class="readmore"><a href="page.html?pid='+element["ID"]+'">阅读原文</a></span></div>';
+                msg += '</li>';
+
+                $("#div01").append(msg);
+            });
+        })
+    }
+
+
+    function getTotal(url) {
+        var s = 0;
+        var a = $("#keyboard").val();
+        $.ajax({
+
+            url: url,
+            method: "get",
+            data: {'words': a},
+            async: false,
+            success: function (data) {
+                s = data;
+
+            }
+        });
+        return s;
+    }
+
+    function search() {
+
+        if ($("#keyboard").val() == "请输入关键字" || $("#keyboard").val() == null) {
+            window.location.reload();
+            return;
+        }
+        var num = getTotal("/Posts?method=getpostCountByWord");
+        callBackPagination(1, 6, num,
+            "/Posts?method=SearchPostBywords");
+    }
+
+
+    function getPostByTerm(TermID) {
+        var num = getTotal("/Posts?method=getpostCountByTermID&termId=" + TermID);
+        callBackPagination(1, 6, num,
+            "/Posts?method=SearchPostByTermID&termId=" + TermID);
+    }
+
+    function logoff() {
+
+        $.ajax({
+
+            url: "/user?method=logOff",
+            method: "post",
+            success: function (data) {
+                layer.confirm('是否退出', {
+                    btn: ['退出', '取消'] //按钮
+                }, function () {
+                    if (data == 1) {
+                        layer.msg('退出成功', {time: 1000}, function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        layer.msg('退出失败', {time: 1000}, function () {
+                            window.location.reload();
+                        });
+                    }
+                });
+
+            },
+            error: function () {
+                layer.msg('退出失败', {time: 1000}, function () {
+                    window.location.reload();
+                });
+            }
+
+        });
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

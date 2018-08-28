@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>关于_凉菜博客站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fileinput.min.css"/>
+
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="js/fileinput.min.js"></script>
+    <script src="js/zh.js"></script>
+
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/m.css" rel="stylesheet">
+
+    <script>
+        window.onload = function () {
+            var oH2 = document.getElementsByTagName("h2")[0];
+            var oUl = document.getElementsByTagName("ul")[0];
+            oH2.onclick = function () {
+                var style = oUl.style;
+                style.display = style.display == "block" ? "none" : "block";
+                oH2.className = style.display == "block" ? "open" : ""
+            }
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="tophead">
+        <div class="logo">
+            <a href="/">凉菜博客站</a>
+        </div>
+        <div id="mnav">
+            <h2>
+                <span class="navicon"></span>
+            </h2>
+            <ul>
+                <li><a href="index.html">网站首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li class="li01"></li>
+                <li><a href="register.html">注册</a></li>
+                <li class="li02"></li>
+            </ul>
+        </div>
+        <nav class="topnav" id="topnav">
+            <ul>
+                <li><a href="index.html">网站首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li class="li01"></li>
+                <li><a href="register.html">注册</a></li>
+                <li class="li02"></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<article>
+    <h1 class="t_nav">
+        <span>像“凉菜”一样，在盆中搅拌，加几勺辣椒，拌来拌去，麻辣香辣。</span><a href="/" class="n1">网站首页</a><a
+            href="/" class="n2">关于我</a>
+    </h1>
+    <div class="ab_box">
+        <div class="leftbox">
+            <div class="newsview">
+                <div class="news_infos">
+                    <div id="div03"
+                         style="width: 100%; padding: 10px; word-wrap: break-word;">
+
+                    </div>
+                    <br/>
+                    <h2>About my blog</h2>
+                    &nbsp;
+                    <p>域 名：www.zhennaixie.com 创建于2018年7月25日&nbsp;</p>
+                    <br/>
+                    <p>服务器：没有服务器</p>
+                    <br/>
+                    <p>备案号：赣ICP备18000496号</p>
+                    <br/>
+                    <p>程 序：JAVA</p>
+                </div>
+            </div>
+        </div>
+        <div class="rightbox">
+            <div class="aboutme">
+                <h2 class="hometitle">关于我</h2>
+                <div class="avatar" id="div01">
+                    <!-- <img src="images/avatar.jpg"> -->
+                </div>
+                <div class="ab_con" id="div02"></div>
+                <div>
+                    <p class="text-center">
+                        <input type="button" class="btn btn-success " id="btn01"
+                               value="修改信息" onclick="updateMessage01()"/> <input
+                            type="button" class="btn btn-success " id="btn02" value="修改密码"
+                            onclick="updatePwd01()"/>
+                    </p>
+                </div>
+            </div>
+            <div class="weixin">
+                <h2 class="hometitle">微信关注</h2>
+                <ul>
+                    <img src="images/wx.jpg">
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>
+<footer>
+    <p>
+        Design by <a href="/">凉菜搏客站</a> <a href="/">赣ICP备18000496号</a>
+    </p>
+</footer>
+<script src="js/nav.js"></script>
+</body>
+
+<script type="text/javascript">
+    $(function () {
+        var msg = "";
+        $.ajax({
+
+            url: "/user?method=checkISlogin",
+            method: "post",
+            success: function (data) {
+                if (data >= 1) {
+                    msg = '<a href="#" onclick=logoff() >退出登录</a>';
+                    var msg1 = '<a href="admin/index.html" >管理后台</a>';
+                    $(".li01").html("");
+                    $(".li01").append(msg);
+                    if(data == 2){
+                        $(".li02").html("");
+                        $(".li02").append(msg1);
+                    }
+                } else {
+                    msg = '<a href="login.html">登录</a>';
+                    $(".li01").html("");
+                    $(".li01").append(msg);
+                }
+            }
+
+        });
+
+        $.ajax({
+
+            url: "/user?method=getNowUser",
+            method: "post",
+            success: function (data) {
+                $("#div01").html("");
+                $("#div02").html("");
+                $("#div03").html("");
+                if (data != "") {
+                    var s = JSON.parse(data);
+                    var msg01 = '<img src="' + s["pic"] + '" onclick=updatePic() width="100px" height="100px" >';
+
+                    var msg02 = '<p>昵称：' + s["userNicename"] + ' </p>'
+                    msg02 += '<p>邮箱：' + s["userEmail"] + ' </p>'
+
+                    var msg03 = '<span style=" display:block " >'
+                        + s["displayName"] + '</span>';
+
+                    $("#div01").append(msg01);
+                    $("#div02").append(msg02);
+                    $("#div03").append(msg03);
+                }
+            }
+
+        });
+
+    });
+
+    function logoff() {
+
+        $.ajax({
+
+            url: "/user?method=logOff",
+            method: "post",
+            success: function (data) {
+                layer.confirm('是否退出', {
+                    btn: ['退出', '取消'] //按钮
+                }, function () {
+                    if (data == 1) {
+                        layer.msg('退出成功', {time: 1000}, function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        layer.msg('退出失败', {time: 1000}, function () {
+                            window.location.reload();
+                        });
+                    }
+                });
+
+            },
+            error: function () {
+                layer.msg('退出失败', {time: 1000}, function () {
+                    window.location.reload();
+                });
+            }
+
+        });
+
+    }
+
+    function updatePwd01() {
+
+        var msg = '<form>'
+        msg += '<div style="margin: 30px;">'
+        msg += '<input type="password" name="oldpassword" id="oldpassword" class="form-control" placeholder="请输入旧密码" />'
+        msg += '</div>'
+        msg += '<div style="margin: 30px;">'
+        msg += '<input type="password" name="newpassword" id="newpassword" class="form-control" placeholder="输入大于8位的新密码" />'
+        msg += '</div>'
+        msg += '<div style="margin: 30px;">'
+        msg += '<input type="password" name="rnewpassword" id="rnewpassword" class="form-control" placeholder="再次输入新密码" />'
+        msg += '</div>'
+        msg += '<div style="margin: 30px; text-align: center;">'
+        msg += '<input type="button"  value="提交" class="btn btn-success" onclick="updatePwd02()" /><input type="reset" id="btn01" value="重置" class="btn btn-success" />'
+        msg += '</div>'
+        msg += '</form>';
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            shadeClose: true,
+            skin: 'yourclass',
+            content: msg
+        });
+
+    }
+
+    function updatePwd02() {
+
+        $.ajax({
+
+            url: "/user?method=ChangePassword",
+            method: "post",
+            data: {
+                oldpassword: $.md5($.md5($("#oldpassword").val())),
+                newpassword: $.md5($.md5($("#newpassword").val())),
+                rnewpassword: $.md5($.md5($("#rnewpassword").val()))
+            },
+            success: function (data) {
+                if (data == 1) {
+                    layer.msg('修改成功,请重新登陆', {
+                        time: 1000
+                    }, function () {
+                        window.location.href = "login.html";
+                    });
+                } else {
+                    layer.msg('修改失败，请重试');
+                }
+            }
+
+        });
+
+    }
+
+    function updateMessage01() {
+
+        $.ajax({
+
+            url: "/user?method=getNowUser",
+            method: "post",
+            success: function (data) {
+                if (data != "") {
+                    var s = JSON.parse(data);
+                    var a = s["displayName"];
+                    a = a.replace(/<br\/>/g, "\n");
+
+                    var msg = '<form>'
+                    msg += '<div style="margin: 30px;">'
+                    msg += '<p>简介：</p>'
+                    msg += '<textarea name="displayName" id="displayName" style="height: 200px; width: 100%">' + a + '</textarea>'
+                    msg += '</div>'
+                    msg += '<div style="margin: 30px;">'
+                    msg += '<p>昵称：</p>'
+                    msg += '<input type="text" name="userNicename" id="userNicename" class="form-control" value="' + s["userNicename"] + '" />'
+                    msg += '</div>'
+                    msg += '<div style="margin: 30px;">'
+                    msg += '<p>邮箱：</p>'
+                    msg += '<input type="text" name="userEmail" id="userEmail" class="form-control" value="' + s["userEmail"] + '" />'
+                    msg += '</div>'
+                    msg += '<div style="margin: 30px; text-align: center;">'
+                    msg += '<input type="button" value="提交" class="btn btn-success" onclick="updateMessage02()" />'
+                    msg += '</div>'
+                    msg += '</form>';
+
+                    layer.open({
+                        type: 1,
+                        title: false,
+                        closeBtn: 0,
+                        shadeClose: true,
+                        skin: 'yourclass',
+                        content: msg,
+                        area: ['600px', 'auto'],
+
+
+                    });
+
+                }
+            }
+
+        });
+
+    }
+
+
+    function updateMessage02() {
+
+        var s = document.getElementById("displayName").value;
+        s = s.replace(/\n/g, "<br/>");
+
+        $.ajax({
+
+            url: "/user?method=ChangeMessage",
+            method: "post",
+            data: {displayName: s, userNicename: $("#userNicename").val(), userEmail: $("#userEmail").val()},
+            success: function (data) {
+                if (data == 1) {
+                    layer.msg('修改成功', {
+                        time: 1000
+                    }, function () {
+                        window.location.href = "about.html";
+                    });
+                } else {
+                    layer.msg('修改失败，请重试');
+                }
+            }
+
+        });
+
+    }
+
+
+    function updatePic() {
+
+        var msg = '<div style="padding: 20px; " ><input id="photo_upload" name="file" type="file" data-show-caption="true" ></div>'
+        msg += '<script>initFileInput("photo_upload")<\/script>';
+
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            shadeClose: true,
+            skin: 'yourclass',
+            area: ['400px', '400px'],
+            content: msg
+        });
+
+    }
+
+
+    function initFileInput(ctrlName) {
+        var control = $('#' + ctrlName);
+        control.fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: "/user?method=UpdateUserPic", //上传的地址
+            allowedFileExtensions: ['jpg', 'png', 'jpeg'], //接收的文件后缀
+            //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+            maxFilesNum: 1, //上传最大的文件数量
+            showUpload: true, //是否显示上传按钮
+            showRemove: true, //显示移除按钮
+            showPreview: true, //是否显示预览
+            showCaption: false, //是否显示标题
+            browseClass: "btn btn-primary", //按钮样式
+            //dropZoneEnabled: true,//是否显示拖拽区域
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            maxFileSize: 100000, //单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+            //maxFileCount: 10, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount: true,
+            initialPreviewAsData: true,
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            //msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+
+        }).on('filepreupload', function (event, data, previewId, index) { //上传中
+            var form = data.form,
+                files = data.files,
+                extra = data.extra,
+                response = data.response,
+                reader = data.reader;
+            console.log('文件正在上传');
+        }).on("fileuploaded", function (event, data, previewId, index) { //一个文件上传成功
+            console.log('文件上传成功！' + data.id);
+            parent.location.reload();
+        }).on('fileerror', function (event, data, msg) { //一个文件上传失败
+            console.log('文件上传失败！' + data.id);
+        })
+    }
+</script>
+
+</html>

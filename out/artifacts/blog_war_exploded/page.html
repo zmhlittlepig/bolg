@@ -1,0 +1,715 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页_凉菜博客站</title>
+
+    <script type="text/javascript">
+        !function (a, b, c) {
+            function d(a, b) {
+                var c = String.fromCharCode;
+                l.clearRect(0, 0, k.width, k.height), l.fillText(c.apply(this, a), 0, 0);
+                var d = k.toDataURL();
+                l.clearRect(0, 0, k.width, k.height), l.fillText(c.apply(this, b), 0, 0);
+                var e = k.toDataURL();
+                return d === e
+            }
+
+            function e(a) {
+                var b;
+                if (!l || !l.fillText) return !1;
+                switch (l.textBaseline = "top", l.font = "600 32px Arial", a) {
+                    case "flag":
+                        return !(b = d([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819])) && (b = d([55356, 57332, 56128,
+                            56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447
+                        ], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128,
+                            56423, 8203, 56128, 56447
+                        ]), !b);
+                    case "emoji":
+                        return b = d([55358, 56760, 9792, 65039], [55358, 56760, 8203, 9792, 65039]), !b
+                }
+                return !1
+            }
+
+            function f(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var g, h, i, j, k = b.createElement("canvas"),
+                l = k.getContext && k.getContext("2d");
+            for (j = Array("flag", "emoji"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, i = 0; i < j.length; i++) c.supports[j[i]] = e(j[i]), c.supports.everything = c.supports.everything && c.supports[
+                j[i]], "flag" !== j[i] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[j[i]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback =
+                function () {
+                    c.DOMReady = !0
+                }, c.supports.everything || (h = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", h, !1), a.addEventListener("load", h, !1)) : (a.attachEvent(
+                "onload", h), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), g = c.source || {}, g.concatemoji ? f(g.concatemoji) : g.wpemoji && g.twemoji && (f(g.twemoji), f(g.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <script src="js/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+
+    <link rel="stylesheet" id="pure-highlightjs-style-css" href="css/default.css" type="text/css" media="all">
+    <link rel="stylesheet" id="pure-highlightjs-css-css" href="css/pure-highlight.css" type="text/css" media="all">
+
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" id="style-css" href="css/style1.css" type="text/css" media="all">
+    <script type="text/javascript" src="js/jquery_002.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="admin/js/getUrl.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-pager.css"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/m.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/chinaz.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-pager.js"></script>
+    <script type="text/javascript" src="bootstrap/js/extendPagination.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/chinaz.js"></script>
+    <script src="layer/layer.js"></script>
+
+    <script>
+        window.onload = function () {
+            var oH2 = document.getElementsByTagName("h2")[0];
+            var oUl = document.getElementsByTagName("ul")[0];
+            oH2.onclick = function () {
+                var style = oUl.style;
+                style.display = style.display == "block" ? "none" : "block";
+                oH2.className = style.display == "block" ? "open" : ""
+            }
+
+        }
+
+        /* $(window).load("/blog/Posts?method=GetPostMessageStage&page=1", function(responseText, statusTXT, xhr) {
+
+            var s = JSON.parse(responseText);
+            $("#div01").html("");
+
+            s.forEach(element => {
+                var msg =  '<li> <span class="blogpic"><a href="/"><img src="images/text02.jpg"></a></span>';
+                      msg +=  '<h3 class="blogtitle"><a href="/">' + element["postTitle"] +'</a></h3><h5>' + element["postAuthor"] + '</h5>';
+                      msg +=  '<div class="bloginfo">';
+                      msg +=  '<p>' + element["postExcerpt"] + '</p>';
+                      msg +=  '</div>';
+                      msg +=  '<div class="autor"><span class="lm"><a href="/" title="CSS3|Html5" target="_blank" class="classname">' + element["name"] + '</a></span><span class="dtime">' + element["postDate"] + '</span><span class="viewnum">评论（<a href="/">' + element["commentCount"] + '</a>）</span><span class="readmore"><a href="/">阅读原文</a></span></div>';
+                      msg +=  '</li>';
+
+                $("#div01").append(msg);
+            });
+        }); */
+
+    </script>
+</head>
+<body>
+<header>
+    <div class="tophead">
+        <div class="logo">
+            <a href="/">凉菜博客站</a>
+        </div>
+        <div id="mnav">
+            <h2>
+                <span class="navicon"></span>
+            </h2>
+            <ul>
+                <li><a href="index.html">网站首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li class="li01"></li>
+                <li><a href="register.html">注册</a></li>
+                <li class="li02"></li>
+            </ul>
+        </div>
+        <nav class="topnav" id="topnav">
+            <ul>
+                <li><a href="index.html">网站首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li class="li01"></li>
+                <li><a href="register.html">注册</a></li>
+                <li class="li02"></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<article>
+    <div id='cssmenu'>
+        <ul id="mynav">
+
+        </ul>
+    </div>
+    <div class="blogs">
+        <div id="div01">
+            <!--<div class="post-template-default single single-post postid-393 single-format-standard logged-in">-->
+            <div>
+                <section class="container">
+                    <div class="content-wrap">
+                        <div class="content">
+
+                            <header class="article-header">
+                                <h1 class="article-title">
+                                    <a href="#">
+                                        <span data-rel="title" id="title"></span>
+                                    </a>
+                                </h1>
+                                <div class="meta">
+                                <span id="mute-category" class="muted">
+                                    <i class="fa fa-list-alt"></i>
+                                    <a href="#" id="term"> </a>
+                                </span>
+                                    <span class="muted">
+                                    <i class="fa fa-user"></i>
+                                    <a href="#" id="author"></a>
+                                </span>
+                                    <time class="muted">
+                                        <i class="fa fa-clock-o"></i> <span id="time"></span>
+                                    </time>
+                                    <span class="muted">
+                                    <i class="fa fa-comments-o"></i>
+                                    <a href="#"><span id="cnum">0</span>评论</a>
+                                </span>
+                                </div>
+
+                            </header>
+                            <div class="article-content">
+                                <div id="mycontent"></div>
+                                <div class="article-social text-center center-block">
+                                    <a href="javascript:;" data-action="ding" data-id="393" id="Addlike" class="action"
+                                       data-original-title="" title="">
+                                        <i class="fa fa-heart-o"></i>喜欢 (
+                                        <span class="count">0</span>)</a>
+                                </div>
+                            </div>
+                            <footer class="article-footer text-left"><i class="fa fa-tags"></i><span id="tags"></span>
+                            </footer>
+                            <nav class="article-nav">
+					<span class="article-nav-prev">
+					</span>
+                                <span class="article-nav-next"></span>
+                            </nav>
+
+                            <div id="respond" class="no_webshot">
+                                <form action="http://www.welcom212.com/wordpress/wp-comments-post.php" method="post"
+                                      id="commentform">
+
+                                    <div class="comt-title" id="comt-title">
+                                        <div class="text-left pull-left">
+                                            <input hidden id="uid" value="0">
+                                            <input hidden id="uname" value="匿名">
+                                            <input hidden id="uemail" value="example@example.com">
+                                            <input hidden id="parentid" value="0">
+                                            <img id="myimg" alt="匿名"
+                                                 style="display:inline-block; word-break: break-all;word-wrap: break-word; "
+                                                 src="image/robot.png" width="28" height="28">
+                                            <span>发表我的评论</span>
+                                        </div>
+                                        <a id="cancel-comment-reply-link" class="pull-right"
+                                           href="javascript:;">取消评论</a>
+                                    </div>
+
+                                    <div class="comt">
+                                        <div class="comt-box">
+                                            <textarea placeholder="写点什么..." class="input-block-level comt-area"
+                                                      name="comment" id="comment" cols="100%" rows="3" tabindex="1"
+                                                      onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('commentsubmit').click();return false};"></textarea>
+                                            <div class="comt-ctrl">
+                                                <span id="replyMsg" style="color: gray;">
+                                                    <span></span>&nbsp;
+                                                    <span></span>&nbsp;
+                                                    <input hidden id="remsg" value="">&nbsp;
+                                                </span>
+                                                <button class="btn btn-primary pull-right" type="button" name="submit"
+                                                        id="commentsubmit" onclick="submmitComments()" tabindex="5">
+                                                    <i class="fa fa-check-square-o"></i> 提交评论
+                                                </button>
+                                                <div class="comt-tips pull-right">
+                                                    <input name="comment_post_ID" value="393" id="comment_post_ID"
+                                                           type="hidden">
+                                                    <input name="comment_parent" id="comment_parent" value="0"
+                                                           type="hidden">
+                                                    <input id="_wp_unfiltered_html_comment_disabled"
+                                                           name="_wp_unfiltered_html_comment"
+                                                           value="8f36537289" type="hidden">
+                                                    <script>
+                                                        (function () {
+                                                            if (window === window.parent) {
+                                                                document.getElementById('_wp_unfiltered_html_comment_disabled').name = '_wp_unfiltered_html_comment';
+                                                            }
+                                                        })();
+                                                    </script>
+                                                    <div class="comt-tip comt-loading" style="display: none;">正在提交,
+                                                        请稍候...
+                                                    </div>
+                                                    <div class="comt-tip comt-error" style="display: none;">#</div>
+                                                </div>
+
+                                                <span class="muted comt-mailme">
+										<label for="comment_mail_notify" class="checkbox inline" style="padding-top:0">
+											<input name="comment_mail_notify" id="comment_mail_notify"
+                                                   value="comment_mail_notify" checked="checked" type="checkbox">有人回复时邮件通知我</label>
+									</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            <div id="postcomments">
+                                <div id="comments">
+                                    <i class="fa fa-comments-o"></i>
+                                    <b> (<span id="commentNum"></span>)</b>个小伙伴在吐槽
+                                </div>
+                                <ol class="commentlist" id="mycomments">
+                                </ol>
+                                <div class="commentnav">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <script type="text/javascript" src="js/highlight.js"></script>
+                <script type="text/javascript" src="js/wp-embed.js"></script>
+
+                <div class="rollto" style="display: none;">
+                    <button class="btn btn-inverse" data-type="totop" title="回顶部">
+                        <i class="fa fa-arrow-up"></i>
+                    </button>
+                    <button class="btn btn-inverse" data-type="torespond" title="发评论">
+                        <i class="fa fa-comment-o"></i>
+                    </button>
+                </div>
+                <div id="translate-man-app" class="content-3WfBL_0" style="display: none;">
+                    <div data-v-2b7a7e32="" class="outputBox-qe9A4_0">
+                        <div data-v-2b7a7e32="" class="outputBox-3oESn_0">
+                            <span data-v-2b7a7e32="" class="outputBox-13Ovx_0"></span>
+                            <!---->
+                        </div>
+                        <div data-v-2b7a7e32="" class="outputBox-1GLb__0">
+                            <!---->
+                            <div data-v-2b7a7e32="" class="outputBox-onVZH_0">
+                                <img src="servlet%E4%B8%ADdestory%E6%96%B9%E6%B3%95%E7%9A%84%E8%AF%AF%E8%A7%A3%20%E2%80%93%20212%E5%8D%9A%E5%AE%A2_files/sound.svg"
+                                     class="icon-tprjJ_0">
+                            </div>
+                        </div>
+                        <div data-v-2b7a7e32="" class="outputBox-2sJgr_0"></div>
+                        <div data-v-2b7a7e32="" class="outputBox-17RAm_0" style="display: none;">
+                            <!---->
+                            <!---->
+                            <!---->
+                            <div data-v-2b7a7e32=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <ul id="callBackPager"></ul>
+        </div>
+    </div>
+
+
+    <div class="sidebar">
+        <div class="about">
+
+        </div>
+        <div class="search" hidden>
+            <form name="searchform"
+                  id="searchform">
+                <input name="keyboard" id="keyboard" class="input_text"
+                       value="请输入关键字" style="color: rgb(153, 153, 153);"
+                       onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}"
+                       onblur="if(value==''){this.style.color='#999';value='请输入关键字'}"
+                       type="text">
+                <input name="show" value="title" type="hidden">
+                <input name="tempid" value="1" type="hidden">
+                <input name="tbname" value="news" type="hidden">
+                <input name="Submit" class="input_submit" value="搜索" type="button" onclick="search()">
+            </form>
+        </div>
+        <div class="cloud">
+            <h2 class="hometitle">标签云</h2>
+            <ul id="ul01">
+            </ul>
+        </div>
+        <div class="paihang">
+            <h2 class="hometitle">热度排行</h2>
+            <ul id="ul02">
+            </ul>
+        </div>
+        <div class="links">
+            <h2 class="hometitle">友情链接</h2>
+            <ul>
+                <li><a href="http://www.baidu.com" title="百度">百度</a></li>
+                <li><a href="http://www.bilibili.com" title="B站">B站</a></li>
+                <li><a href="http://www.welcom212.com/wordpress" title="站长博客">站长博客</a></li>
+            </ul>
+        </div>
+        <div class="weixin">
+            <h2 class="hometitle">官方微信</h2>
+            <ul>
+                <img src="images/wx.jpg">
+            </ul>
+        </div>
+    </div>
+</article>
+<div class="blank"></div>
+<footer>
+    <p>
+        Design by <a href="/">杨青个人博客</a> <a href="/">蜀ICP备11002373号-1</a>
+    </p>
+</footer>
+<script src="js/nav.js"></script>
+<script>
+    $(function () {
+        var msg = "";
+        $.ajax({
+
+            url: "/user?method=checkISlogin",
+            method: "post",
+            success: function (data) {
+                if (data >= 1) {
+                    msg = '<a href="#" onclick=logoff() >退出登录</a>';
+                    var msg1 = '<a href="admin/index.html" >管理后台</a>';
+                    $(".li01").html("");
+                    $(".li01").append(msg);
+                    if(data == 2){
+                        $(".li02").html("");
+                        $(".li02").append(msg1);
+                    }
+                } else {
+                    msg = '<a href="login.html">登录</a>';
+                    $(".li01").html("");
+                    $(".li01").append(msg);
+                }
+            }
+
+        });
+
+
+
+        $.ajax({
+
+            url: "/Terms?method=getAllLable",
+            method: "post",
+            success: function (data) {
+
+                var s = JSON.parse(data);
+                $("#ul01").html("");
+                s.forEach(function (element) {
+
+                    var msg = '<a href="javascript:;" onclick = "getPostByTerm(' + element["termId"] + ')">' + element["name"] + '</a>';
+
+                    $("#ul01").append(msg);
+                });
+
+            }
+        });
+
+
+        $.ajax({
+
+            url: "/Posts?method=GetPostByCommentCount",
+            method: "post",
+            success: function (data) {
+                var s = JSON.parse(data);
+                $("#ul02").html("");
+                s.forEach(function (element) {
+
+                    var msg = '<li><b><a href="page.html?pid='+element["iD"]+'" target="_blank">' + element["postTitle"] + '</a></b>';
+                    msg += '<div style="word-break: break-all;word-wrap: break-word; ">';
+                    msg += '<i><img src="' + element["postPic"] + '"></i>' + element["postExcerpt"].substr(0, 80)
+                    msg += '</div></li>';
+
+                    $("#ul02").append(msg);
+                });
+
+            }
+
+        });
+
+        $.ajax({
+            url: "/adminterm?method=getNav",
+            method: 'post',
+            success: function (data) {
+                data = JSON.parse(data);
+                var msg = "";
+                data.forEach(function (list) {
+
+                    if (list.length == 1) {
+                        msg += "<li><a href='javascript: ;' onclick='getPostByTerm(" + list[0]['termId'] + ")'>" + list[0]['name'] + "</a></li> ";
+                    } else {
+
+                        msg += "<li class='has-sub'><a href='javascript: ;' onclick='getPostByTerm(" + list[0]['termId'] + ")'>" + list[0]['name'] + "</a> <ul>";
+                        for (var i = 1; i < list.length; i++) {
+                            msg += "<li><a href='javascript: ;' onclick='getPostByTerm(" + list[i]['termId'] + ")'>" + list[i]['name'] + "</a></li>";
+                        }
+                        msg += "</ul> </li>";
+                    }
+                });
+                $("#mynav").append(msg);
+            }
+        });
+
+
+        $.ajax({
+            url: '/Posts?method=getPostsInfo',
+            method: 'post',
+            data: {'pid': GetQueryString("pid")},
+            success: function (data) {
+                data = JSON.parse(data);
+                $("#title").html(data["postTitle"]);
+                $("#term").html(data["name"]);
+                $("#author").html(data["userNicename"]);
+                $("#time").html(data["postDate"]);
+                $("#mycontent").html(data["postContent"]);
+            }
+        });
+
+
+        $.ajax({
+            url: '/Posts?method=getPoststags',
+            mehtod: 'post',
+            data: {'pid': GetQueryString("pid")},
+            success: function (data) {
+                data = JSON.parse(data);
+                var msg = " ";
+                data.forEach(function (value) {
+                    msg += value["name"] + ",";
+                });
+
+                msg = msg.substring(0, msg.length - 1);
+                $("#tags").html(msg);
+            }
+
+        });
+
+        $.ajax({
+            url: '/user?method=getUserMessage',
+            method: 'post',
+            success: function (data) {
+                data = JSON.parse(data);
+                $("#myimg").attr("src", data["pic"]);
+                $("#myimg").attr("alt", data["userNicename"]);
+                $("#uid").val(data["id"]);
+                $("#uname").val(data["userNicename"]);
+                $("#uemail").val(data["userEmail"]);
+            }
+        });
+
+        //进入页面的时候需要调用callBackPagination这个函数，传入当前页，页大小，总页数
+        callBackPagination1(1, 10, getCommentTatal()); //参数一：当前页 参数二：页大小  参数三：数据总条数（不需要传递总页数）
+    })
+
+    function submmitComments() {
+        var pid = GetQueryString("pid")
+        var context = $("#remsg").val();
+        context = $("#comment").val() + " " + context
+        $.ajax({
+            url: '/comments?method=saveComment',
+            method: 'post',
+            data:{
+                'uid':$("#uid").val(),
+                'uname':$("#uname").val(),
+                'email':$("#uemail").val(),
+                'comment': context,
+                'parentid': $("#parentid").val(),
+                'postid': pid
+            },
+            success:function (data) {
+                alert(data);
+                $("#comment").val("");
+            }
+        });
+    }
+
+    //这段代码不许要动
+    function callBackPagination1(showCount, limit, totalCount) {
+        createTable1(1, limit); //第一次调用(加载第一页数据)
+        $('#callBackPager').extendPagination({  //根据传入的参数生成分页控件
+            totalCount: totalCount,
+            showCount: showCount,
+            limit: limit,
+            pageCount: 5,
+            count: 5,
+            callback: function (curr, limit) {//当点击分页控件页码时会触发此回调函数
+                createTable1(curr, limit);
+            }
+        });
+    }
+
+    //用的时候只需要写下面这段ajax代码就可以
+    function createTable1(currPage, limit) {
+        $.ajax({
+            url: '/comments?method=getComments',
+            method: 'post',
+            data: {'pid': GetQueryString("pid"), 'page': currPage, 'limit': limit},
+            success: function (data) {
+                data = JSON.parse(data);
+                $("#mycomments").html("");
+                data.forEach(function (value) {
+                    var msg = '<li class="comment even thread-even depth-1" id="comment-101">';
+                    msg += '<div class="c-avatar">';
+                    msg += '<div style="float:left;"><img alt=""  class="avatar-54 photo avatar-default" src="'+value["pic"]+'" style="display: block;" width="54" height="54"></div>';
+                    msg += '<div class="c-main text-left" id="div-comment-101"> <div style="word-break: break-all;word-wrap: break-word; ">'+value["commentContent"]+'</div>';
+                    msg += '<div class="c-meta">';
+                    msg += '<span class="c-author">'+value["userNicename"]+'</span>'+value["commentDate"];
+                    msg += '<a rel="nofollow" class="comment-reply-link" onclick="reply('+value["commentId"]+', \''+value["userNicename"]+'\', \''+value["commentContent"]+'\')" aria-label="回复给">回复</a>';
+                    msg += '</div> </div> </div> </li>';
+                    $("#mycomments").append(msg);
+                });
+            }
+        });
+    }
+
+    function reply(cid, userName, content) {
+        window.location.hash="#comt-title";
+        $("#replyMsg").find('span').eq(0).html("回复： "+ userName);
+        $("#replyMsg").find('span').eq(1).html("// 消息："+ content.substr(0, 20));
+        $("#remsg").val('回复：'+userName+"//消息："+content);
+        $("#parentid").val(cid);
+        $("#comment").attr('placeholder', '回复：'+userName+"//消息："+content);
+    }
+
+    //这段代码不许要动
+    function callBackPagination(showCount, limit, totalCount, url) {
+        createTable(1, limit, url); //第一次调用(加载第一页数据)
+        $('#callBackPager').extendPagination({  //根据传入的参数生成分页控件
+            totalCount: totalCount,
+            showCount: showCount,
+            limit: limit,
+            pageCount: 5,
+            count: 5,
+            callback: function (curr, limit) {//当点击分页控件页码时会触发此回调函数
+                createTable(curr, limit, url);
+            }
+        });
+    }
+
+    function getCommentTatal() {
+        var num = 0;
+        $.ajax({
+            url: 'comments?method=getCommentsNum',
+            method: 'post',
+            data: {'pid': GetQueryString("pid")},
+            async: false,
+            success: function (data) {
+                num = data;
+                $("#commentNum").html(num);
+            }
+        });
+        return num;
+    }
+
+    //用的时候只需要写下面这段ajax代码就可以
+    function createTable(currPage, limit, url) {
+
+        var s = $("#keyboard").val();
+        $.get(url, {currPage: currPage, pageSize: limit, "words": s}, function (result) {
+            var s = JSON.parse(result);
+            $("#div01").html("");
+
+            s.forEach(function (element) {
+                var msg = '<li> <span class="blogpic"><a href="/"><img src="' + element["postPic"] + '" height="200px"></a></span>';
+                msg += '<h3 class="blogtitle"><a href="/">' + element["postTitle"] + '</a></h3><h5>' + element["userNicename"] + '</h5>';
+                msg += '<div class="bloginfo">';
+                msg += '<div style="word-break: break-all;word-wrap: break-word; ">' + element["postExcerpt"] + '</div>';
+                msg += '</div>';
+                msg += '<div class="autor"><span class="lm"><a href="/" title="CSS3|Html5" target="_blank" class="classname">' + element["name"] + '</a></span><span class="dtime">' + element["postDate"] + '</span><span class="viewnum">评论（<a href="/">' + element["commentCount"] + '</a>）</span><span class="readmore"><a href="/" onclick="showPost()">阅读原文</a></span></div>';
+                msg += '</li>';
+
+                $("#div01").append(msg);
+            });
+        })
+    }
+
+
+    function getTotal(url) {
+        var s = 0;
+        var a = $("#keyboard").val();
+        $.ajax({
+
+            url: url,
+            method: "get",
+            data: {'words': a},
+            async: false,
+            success: function (data) {
+                s = data;
+
+            }
+        });
+        return s;
+    }
+
+    function search() {
+        if ($("#keyboard").val() == "请输入关键字" || $("#keyboard").val() == null) {
+            window.location.reload();
+            return;
+        }
+
+        // var num = getTotal("/Posts?method=getpostCountByWord");
+        // callBackPagination(1, 2, num,
+        //     "/Posts?method=SearchPostBywords");
+    }
+
+
+    function getPostByTerm(TermID) {
+        var num = getTotal("/Posts?method=getpostCountByTermID&termId=" + TermID);
+        callBackPagination(1, 6, num,
+            "/Posts?method=SearchPostByTermID&termId=" + TermID);
+    }
+
+    function logoff() {
+
+        $.ajax({
+
+            url: "/user?method=logOff",
+            method: "post",
+            success: function (data) {
+                layer.confirm('是否退出', {
+                    btn: ['退出', '取消'] //按钮
+                }, function () {
+                    if (data == 1) {
+                        layer.msg('退出成功', {time: 1000}, function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        layer.msg('退出失败', {time: 1000}, function () {
+                            window.location.reload();
+                        });
+                    }
+                });
+
+            },
+            error: function () {
+                layer.msg('退出失败', {time: 1000}, function () {
+                    window.location.reload();
+                });
+            }
+
+        });
+
+    }
+
+
+</script>
+
+
+</body>
+</html>
